@@ -21,7 +21,7 @@ announce    'Changing permissions...       '                                    
 sudo        chmod                                                777         /usr/src    &&
 announce    'Cloning git repo...           '                                             &&
 git         clone https://github.com/scala-network/XLArig.git                            &&
-announe     'Creating build folder...      '                                             &&
+announce     'Creating build folder...      '                                             &&
 mkdir       XLArig/build                                                                 &&
 announce    'Moving to build directory...  '                                             &&
 cd          XLArig/build                                                                 &&
@@ -37,4 +37,4 @@ announce    'Making script executable...   '                                    
 sudo        chmod +x minexla.sh                                                          &&
 announce    'Installing miner script...    '                                             &&
 sudo        cp minexla.sh /usr/local/bin/minexla                                         &&
-announe     'Enter "minexla" to begin.     ' 
+announce     'Enter "minexla" to begin.     ' 

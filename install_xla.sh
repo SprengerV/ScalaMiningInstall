@@ -30,11 +30,20 @@ cmake       ..                                                                  
 make        -j$(nproc)                                                                   &&
 announce    'Installing binary...          '                                             &&
 sudo        cp xlarig /usr/local/bin/                                                    &&
-announce    'Writing miner script...       '                                             &&
+announce    'Writing XLArig script...       '                                             &&
 echo        -e '#!/bin/bash\n\nscreen -dmS xlacpu bash -c "xlarig -o us.fastpool.xyz:10126 -u '$WALLET'@'$WORKER\
-    ' -p x -t '$THREADS' -a panthera -k"' > minexla.sh                                    &&
+    ' -p x -t '$THREADS' -a panthera -k"' > minexla.sh                                   &&
 announce    'Making script executable...   '                                             &&
 sudo        chmod +x minexla.sh                                                          &&
-announce    'Installing miner script...    '                                             &&
+announce    'Installing XLArig script...    '                                             &&
 sudo        cp minexla.sh /usr/local/bin/minexla                                         &&
+announce    'Checking for mining script...  '                                            &&
+if [ ! -f "/usr/local/bin/mine"]
+    announce 'Creating mining script...     '                                            &&
+    echo -e '#!/bin/bash\n\n' > /usr/local/bin/mine                                      &&
+    sudo chmod +x /usr/local/bin/mine                                                    &&
+else
+    announe  'Editing mining script...      '                                            &&
+echo        -e 'screen -dmS xlacpu bash -c "/usr/local/bin/minexla"' \
+    >> /usr/local/bin/mine                                                               &&
 announce     'Enter "minexla" to begin.     ' 

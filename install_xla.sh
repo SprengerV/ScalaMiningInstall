@@ -31,8 +31,8 @@ make        -j$(nproc)                                                          
 announce    'Installing binary...          '                                             &&
 sudo        cp xlarig /usr/local/bin/                                                    &&
 announce    'Writing XLArig script...       '                                             &&
-echo        -e '#!/bin/bash\n\nscreen -dmS xlacpu bash -c "xlarig -o us.fastpool.xyz:10126 -u '$WALLET'@'$WORKER\
-    ' -p x -t '$THREADS' -a panthera -k"' > minexla.sh                                   &&
+echo        -e 'xlarig -o us.fastpool.xyz:10126 -u '$WALLET'@'$WORKER\
+    ' -p x -t '$THREADS' -a panthera -k' > minexla.sh                                   &&
 announce    'Making script executable...   '                                             &&
 sudo        chmod +x minexla.sh                                                          &&
 announce    'Installing XLArig script...    '                                             &&

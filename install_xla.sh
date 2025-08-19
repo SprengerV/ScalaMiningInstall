@@ -38,12 +38,13 @@ sudo        chmod +x minexla.sh                                                 
 announce    'Installing XLArig script...   '                                             &&
 sudo        cp minexla.sh /usr/local/bin/minexla                                         &&
 announce    'Checking for mining script... '                                             &&
-if [ ! -f "/usr/local/bin/mine"]
+if [ ! -f "/usr/local/bin/mine"]; then
     announce     'Creating mining script...    '                                             &&
     echo         -e '#!/bin/bash\n\n' > /usr/local/bin/mine                                  &&
-    sudo         chmod +x /usr/local/bin/mine                                                &&
+    sudo         chmod +x /usr/local/bin/mine
 else
-    announce     'Editing mining script...     '                                             &&
+    announce     'Editing mining script...     '
+fi
 echo        -e 'screen -dmS xlacpu bash -c "/usr/local/bin/minexla"' \
     >> /usr/local/bin/mine                                                                   &&
 announce     'Enter "minexla" to begin.    ' 

@@ -21,7 +21,7 @@ announce    'Changing permissions...       '                                    
 sudo        chmod                                                777         /usr/src    &&
 announce    'Cloning git repo...           '                                             &&
 git         clone https://github.com/scala-network/XLArig.git                            &&
-announce     'Creating build folder...      '                                             &&
+announce     'Creating build folder...     '                                             &&
 mkdir       XLArig/build                                                                 &&
 announce    'Moving to build directory...  '                                             &&
 cd          XLArig/build                                                                 &&
@@ -30,20 +30,20 @@ cmake       ..                                                                  
 make        -j$(nproc)                                                                   &&
 announce    'Installing binary...          '                                             &&
 sudo        cp xlarig /usr/local/bin/                                                    &&
-announce    'Writing XLArig script...       '                                            &&
+announce    'Writing XLArig script...      '                                             &&
 echo        -e 'xlarig -o us.fastpool.xyz:10126 -u '$WALLET'@'$WORKER\
     ' -p x -t '$THREADS' -a panthera -k' > minexla.sh                                        &&
 announce    'Making script executable...   '                                             &&
 sudo        chmod +x minexla.sh                                                          &&
-announce    'Installing XLArig script...    '                                            &&
+announce    'Installing XLArig script...   '                                             &&
 sudo        cp minexla.sh /usr/local/bin/minexla                                         &&
-announce    'Checking for mining script...  '                                            &&
+announce    'Checking for mining script... '                                             &&
 if [ ! -f "/usr/local/bin/mine"]
-    announce     'Creating mining script...     '                                            &&
+    announce     'Creating mining script...    '                                             &&
     echo         -e '#!/bin/bash\n\n' > /usr/local/bin/mine                                  &&
     sudo         chmod +x /usr/local/bin/mine                                                &&
 else
-    announce    'Editing mining script...      '                                             &&
+    announce     'Editing mining script...     '                                             &&
 echo        -e 'screen -dmS xlacpu bash -c "/usr/local/bin/minexla"' \
     >> /usr/local/bin/mine                                                                   &&
-announce     'Enter "minexla" to begin.     ' 
+announce     'Enter "minexla" to begin.    ' 
